@@ -9,7 +9,7 @@ export const User = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/users");
+        const response = await axios.get("https://mern-contact-api.onrender.com/api/users");
         setUsers(response.data);
       } catch (error) {
         console.log("Erreur de récupération de données", error);
@@ -20,7 +20,7 @@ export const User = () => {
 
   const deleteUser = async (userId) => {
     await axios
-      .delete(`http://localhost:8000/api/delete/user/${userId}`)
+      .delete(`https://mern-contact-api.onrender.com/api/delete/user/${userId}`)
       .then((res) => {
         setUsers((prevUser) => prevUser.filter((user) => user._id !== userId));
         toast.success(res.data.message, { position: "top-right" });
